@@ -28,6 +28,9 @@ export class QuestionaireComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Called once, before the instance is destroyed.
     // Add 'implements OnDestroy' to the class.
+    if (this.subscription) {
+        this.subscription.unsubscribe();
+    }
 
   }
 

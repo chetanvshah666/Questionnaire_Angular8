@@ -18,7 +18,7 @@
                         </div>
 
 
-                        <select [(ngModel)]="answerArray[i]" [ngClass]="getDropdownCss(answerArray[i], item.answer)">
+                        <select [(ngModel)]="answerArray[i]" [disabled]="showHide" [ngClass]="getDropdownCss(answerArray[i], item.answer)">
                             <option [ngValue]="null" selected>Choose here</option>
                             <option *ngFor="let quizOptions of item.options" [ngValue]="quizOptions">{{quizOptions}}</option>
                         </select>
@@ -36,7 +36,7 @@
 
 
                     <div class="pt-2">
-                        <button class="btn btn-primary" type="submit" (click)="submitClick()">submit</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="showHide" (click)="submitClick()">submit</button>
                         <button class="btn btn-primary" (click)="resetClick()">clear</button>
 
                     </div>
