@@ -51,7 +51,7 @@ export class BarChartComponent implements OnInit, OnChanges {
 
     this.barChartData = [
       { data: [this.result["correct"]], label: 'Correct' },
-      { data: [this.result["incorrect"]], label: 'InCorect' }
+      { data: [this.result["incorrect"]], label: 'InCorrect' }
     ];
   }
 
@@ -63,8 +63,8 @@ export class BarChartComponent implements OnInit, OnChanges {
   }
 
 ngOnChanges(changes: SimpleChanges): void {
-  //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //Add '${implements OnChanges}' to the class.
+  // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+  // Add '${implements OnChanges}' to the class.
   
 }
   getBarChartOptions() {

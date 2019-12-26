@@ -29,7 +29,7 @@ export class QuestionaireComponent implements OnInit, OnDestroy {
     // Called once, before the instance is destroyed.
     // Add 'implements OnDestroy' to the class.
     if (this.subscription) {
-        this.subscription.unsubscribe();
+      this.subscription.unsubscribe();
     }
 
   }
@@ -40,13 +40,21 @@ export class QuestionaireComponent implements OnInit, OnDestroy {
     this.dataResp = [];
     this.subscription = this.http.get(localUrl).subscribe((response: any) => {
       this.dataResp = response;
-
+      this.setDefaultValue();
     },
       (error) => {
         console.log(error);
       }
     );
   }
+
+setDefaultValue() {
+  for (let index = 0; index < this.dataResp.quiz.length; index++) {
+    const element = this.dataResp.quiz[index];
+    this.answerArray[index] = null;
+  }
+
+}
 
   submitClick() {
 
@@ -70,6 +78,7 @@ export class QuestionaireComponent implements OnInit, OnDestroy {
     this.showHide = false;
     this.submitted = false;
     this.result = {};
+    this.setDefaultValue();
   }
 
 
@@ -95,7 +104,7 @@ export class QuestionaireComponent implements OnInit, OnDestroy {
 
     if (this.mandatoryFilled && this.showHide) {
 
-      if ( data == ans) {
+      if (data == ans) {
         return 'correctDropDownCss';
 
       } else if (data != ans) {
